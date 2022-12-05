@@ -56,7 +56,7 @@ function App() {
           </form>
         </div>
       <div className='container'>
-        <button className='button-2' onClick={readHash}>HASH</button>
+        <button onClick={readHash}>HASH</button>
       </div>
     </div>
   );
