@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import StoreBuild from './truffle/build/contracts/Store.json';
 
 var Web3 = require('web3');
@@ -43,5 +44,4 @@ export async function readHash(){
     await init();
   }
   return storeContract.methods.get().call((err,result)=>{console.log('stored cid in smart contract:',result)});
-  
 }

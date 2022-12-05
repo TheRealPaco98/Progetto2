@@ -6,7 +6,7 @@ import {init, setHash,readHash} from './Web3Client';
 
 
 function App() {
-  
+  const [file, setFile] = useState('')
   const client = new Web3Storage({ token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDU1NjlBRjI5MjI0ZDFDNjI1QUUwZDQzMjE0ZTE5Q0I4NzFhQUQ4RGEiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2Njk5MjEwOTUxNzUsIm5hbWUiOiJQcm9nZXR0byJ9.p9dqW2LWdCcYAwOoHgQKOMZvl8pRzYMzv7YX6L4_MhU' });
 
   useEffect(() => {
@@ -21,30 +21,29 @@ function App() {
       });
   }
   
-  const [file, setFile] = useState('')
+  
   
   function storeFiles (file) {
     const cid = client.put(file)
     cid.then(value => {
-
-      console.log('stored files with cid:', value)
+      console.log('stored files with cid:', value);
       setCid(value);
     });
   }  
 
   function handleCaptureFile(e) {
     e.preventDefault();
-    console.log('capturing file...')
+    console.log('capturing file...');
     const fileInput = document.getElementById('csvFile');
     const selectedFile = fileInput.files[0];
     console.log(selectedFile);
-    setFile(fileInput.files)
+    setFile(fileInput.files);
   }
   
   function handleSubmit(e) {
     e.preventDefault();
     console.log('You clicked submit.');
-    storeFiles(file)
+    storeFiles(file);
   }
 
   return (
@@ -58,10 +57,10 @@ function App() {
             <input type='submit'></input>
           </form>
         </div>
-        <div>
-          <button onClick={readHash}>HASH</button>
-        </div>
+      <div className='container'>
+        <button className='button-2' onClick={readHash}>HASH</button>
       </div>
+    </div>
   );
 }
 
