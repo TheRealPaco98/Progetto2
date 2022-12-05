@@ -42,6 +42,6 @@ export async function readHash(){
   if (!isInitialized) {
     await init();
   }
-  return storeContract.methods.get().call((err,result)=>{console.log(result)});
+  return storeContract.methods.get().call((err,result)=>{console.log('stored cid in smart contract:',result)});
   
 }
