@@ -21,8 +21,6 @@ function App() {
       });
   }
   
-  
-  
   function storeFiles (file) {
     const cid = client.put(file)
     cid.then(value => {
