@@ -37,3 +37,11 @@ export async function setHash(value) {
   }
   return storeContract.methods.set(value).send({from: selectedAccount});
 }
+
+export async function readHash(){
+  if (!isInitialized) {
+    await init();
+  }
+  return storeContract.methods.get().call((err,result)=>{console.log(result)});
+  
+}

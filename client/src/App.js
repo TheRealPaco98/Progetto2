@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js';
 import './App.css';
-import {init, setHash} from './Web3Client';
+import {init, setHash,readHash} from './Web3Client';
 
 
 
@@ -49,13 +49,17 @@ function App() {
 
   return (
     <div id="App" >
+      <header className='App-header'><h1>DIGITAL TWIN</h1></header>
         <div className="container">
-          <h1>Ciao</h1>
+          <h1>Benvenuto.</h1>
           <p>Inserisci qui il tuo file .csv</p>
           <form onSubmit={handleSubmit}>
             <input type='file' id='csvFile' accept=".csv" onChange={handleCaptureFile}></input>
             <input type='submit'></input>
           </form>
+        </div>
+        <div>
+          <button onClick={readHash}>HASH</button>
         </div>
       </div>
   );
